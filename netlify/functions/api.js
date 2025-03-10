@@ -1,5 +1,7 @@
 // netlify/functions/geminiApi.js
-const fetch = require('node-fetch'); // Assure-toi que 'node-fetch' est installé
+
+// Utilisation d'importation dynamique pour `node-fetch`
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 exports.handler = async function(event, context) {
   const API_KEY = process.env.GEMINI_API_KEY; // Utilisation de la variable d'environnement
