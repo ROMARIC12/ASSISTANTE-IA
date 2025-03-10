@@ -39,7 +39,7 @@ function sendMessage() {
     const botDiv = addMessage("Le bot réfléchit...", "bot-message");
 
     // Envoi de la requête à l'API Gemini
-    fetch("/.netlify/functions/api", {
+    fetch("/netlify/functions/api", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
