@@ -3,10 +3,6 @@ const sendButton = document.getElementById('send-btn');
 const inputField = document.getElementById('user-input');
 const messageContainer = document.getElementById('chat-messages');
 
-// Clé et URL de l'API Gemini
-const API_KEY = "AIzaSyCx63U52UPgnBMGywo_xzv0Wx0DsIMqvjE"; // Mets ta clé API ici
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
-
 // Fonction pour ajouter un message dans le chat
 function addMessage(text, className) {
     const messageDiv = document.createElement('div');
@@ -43,7 +39,7 @@ function sendMessage() {
     const botDiv = addMessage("Le bot réfléchit...", "bot-message");
 
     // Envoi de la requête à l'API Gemini
-    fetch(API_URL, {
+    fetch("/.netlify/functions/api", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
